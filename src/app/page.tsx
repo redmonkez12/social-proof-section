@@ -1,91 +1,48 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import { League_Spartan } from 'next/font/google';
+import { Rating } from "@/app/components/rating";
+import { Card } from "@/app/components/card";
 
-const inter = Inter({ subsets: ['latin'] })
+const leagueSpartan = League_Spartan({ subsets: ['latin'] });
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    return (
+        <main className={`${leagueSpartan.className} w-full grid md:grid-rows-2 md:grid-cols-2 place-items-center pt-20 pb-24 max-w-[69.375rem] mx-auto md:gap-x-32 md:gap-y-[4.438rem]`}>
+            <header className={"text-center max-w-[27.813rem] md:text-left"}>
+                <h1 className={"text-4xl md:text-6xl text-purple font-bold md:tracking-[-0.125rem] leading-[2rem] md:leading-[3rem]"}>10,000+ of our users love our products.</h1>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
+                <h2 className={"text-purpleLight text-xl md:text-[1.188rem] tracking-[-0.04rem] mt-4 font-medium"}>We only provide great
+                    products combined with excellent customer service. See what our satisfied customers are saying about
+                    our services.</h2>
+            </header>
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+            <section className={"flex flex-col gap-4 w-full mt-10 mb-12"}>
+                <Rating text={"Rated 5 Stars in Reviews"}/>
+                <Rating text={"Rated 5 Stars in Report Guru"} styles={"md:ml-[3rem]"}/>
+                <Rating text={"Rated 5 Stars in BestTech"} styles={"md:ml-[6rem]"}/>
+            </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+            <section className={"flex flex-col md:flex-row gap-4 md:gap-8 w-full md:col-span-2 md:items-start"}>
+                <Card
+                    text={"“ We needed the same printed design as the one we had ordered a week prior. Not only did they find the original order, but we also received it in time. Excellent! ”"}
+                    name={"Colton Smith"}
+                    userType={"Verified Buyer"}
+                    imageUrl={"/images/image-colton.jpg"}
+                />
+                <Card
+                    text={"“ Customer service is always excellent and very quick turn around. Completely delighted with the simplicity of the purchase and the speed of delivery.”"}
+                    name={"Irene Roberts"}
+                    userType={"Verified Buyer"}
+                    imageUrl={"/images/image-irene.jpg"}
+                    styles={"md:mt-[1rem]"}
+                />
+                <Card
+                    text={"“ Put an order with this company and can only praise them for the very high standard. Will definitely use them again and recommend them to everyone! ”"}
+                    name={"Anne Wallace"}
+                    userType={"Verified Buyer"}
+                    imageUrl={"/images/image-anne.jpg"}
+                    styles={"md:mt-[2rem]"}
+                />
+            </section>
+        </main>
+    )
 }
