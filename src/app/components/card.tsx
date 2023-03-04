@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { inspect } from "util";
-import styles = module
 
 type Props = {
     text: string;
